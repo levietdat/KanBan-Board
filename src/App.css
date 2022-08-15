@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.completed-block,
+.inprogress-block,
+.todo-block { 
+  background-color: #333;
+  padding: 1rem;
+  flex: 0 0 33.3333%;
+  margin: 0 12px;
+ flex: 0 0 25%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.kanban {
+  max-width: 1200px;
+  margin:  0 auto;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+.inprogress,
+.completed,
+.draggable {
+ display: flex;
+ margin: 4px 0;
+ overflow: hidden;
+ align-items: center;
+ background-color: white;
+ border: solid 1px black;
+ cursor: move;
+}
+h4 {
+  color: rgb(0, 0, 0);
+}
+.title {
+  border-left: 4px solid rgb(234, 234, 234);
+  border-bottom: 4px solid rgb(68, 28, 28);
+  border-width: 12px;
+  margin: 1rem;
+  padding: 1rem;
+  width: 200px;
+}
+.btn-create {
+  margin: 1rem;
+  outline: none;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+}
+.btn-create:hover {
+  color: aliceblue;
+  background-color: #333;
+  box-shadow: 0 0 10px #ccc;
+  transition: all 0.3s;
+}
+.author {
+  border-right: solid 2px rgb(0, 0, 0);
+ margin-right: 4px;
+ padding-right: 4px;
+ padding-left: 4px;
+}
+.work {
+  flex: 1;
+}
+.btn-delete,
+.btn-update {
+  justify-self: flex-end;
+  margin: 0.4rem;
+  width: 40px;
+  height: 20px;
+  outline: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.btn-delete:hover,
+.btn-update:hover {
+  color: aliceblue;
+  background-color: #333;
+  box-shadow: 0 0 10px #ccc;
+  transition: all 0.3s;
+}
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: flex;
+}
+
+.title-work {
+  color: #fff;
+  font-size: 24px;
+  height: 40px;
+  margin: 4px 0;
+  border-bottom: 2px solid #fff;
+}
+.modal.display-none {
+  box-shadow: 0 0 5px #fff;
+  background-color: #333;
+  padding: 0.5rem;
+  z-index: 1111;
+  position: fixed;
+  top: 100px;
+  left: 135px;
+  height: 100px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+}
+.modal.display-block {
+  box-shadow: 0 0 5px #fff;
+  background-color: #333;
+  padding: 0.5rem;
+  z-index: 1111;
+  position: fixed;
+  top: 100px;
+  left: 135px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.modal input {
+  margin: 2px 0;
+  font-size: 24px;
+}
+.btn-put,
+.btn-close,
+.btn-add {
+  outline: none;
+  margin: 0 2px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  margin-top: 5px;
+  z-index: 2222;
+}
+.btn-put.active,
+.btn-close.active,
+.btn-add.active {
+  display: inline-block;
+}
+.btn-put.hide,
+.btn-close.hide,
+.btn-add.hide {
+  display: none;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-put:hover,
+.btn-close:hover,
+.btn-add:hover {
+  color: aliceblue;
+  background-color: #333;
+  box-shadow: 0 0 10px #ccc;
+  transition: all 0.3s;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 768px) {
+   .kanban {
+      flex-direction: column;
+   }
 }
